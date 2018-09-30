@@ -1,5 +1,6 @@
 ﻿using System.IO;
-using System.Linq;
+using DoublyLinkedList.Tests.Helpers;
+using FluentAssertions;
 using Xunit;
 
 namespace DoublyLinkedList.Tests
@@ -7,29 +8,26 @@ namespace DoublyLinkedList.Tests
     /// <summary>
     /// Tests to demonstrate functionality.
     /// </summary>
-    public class DemoTests : ListRandTestBase
+    public class DemoTests
     {
-        public string DataFile { get; } = "data.txt";
+	    private readonly DoubleLinkedListSerializer linkedListSerializer = new DoubleLinkedListSerializer();
 
         /// <summary>
-        /// Demonstrates the functionality of a class <see cref="DoublyLinkedList.ListRand"/>.
+        /// Demonstrates the functionality of a class <see cref="DoublyLinkedList.DoubleLinkedList"/>.
         /// </summary>
         [Fact]
-        public void ListRand()
+        public void DoubleLinkedList()
         {
-            var testListRand = GenerateListRand(count: 10);
-            using (var fileStream = new FileStream(DataFile, FileMode.Create, FileAccess.Write))
+            using (var memoryStream = new MemoryStream())
             {
-                testListRand.Serialize(fileStream);
-            }
+	            var linkedList = DoubleLinkedListFactory.GetDoubleLinkedList(count: 10);
+				linkedListSerializer.Serialize(linkedList, memoryStream, leaveOpen: true);
 
-            var deserializedListRand = new ListRand();
-            using (var fileStream = new FileStream(DataFile, FileMode.Open, FileAccess.Read))
-            {
-                deserializedListRand.Deserialize(fileStream);
-            }
+	            memoryStream.Position = 0;
+				var deserializedLinkedList = linkedListSerializer.Deserialize(memoryStream, leaveOpen: true);
 
-            Assert.True(testListRand.SequenceEqual(deserializedListRand, new ListNodeComparer()));
+	            linkedList.Should().Equal(deserializedLinkedList, new DoubleLinkEqualityComparer().Equals);
+			}
         }
     }
 }
