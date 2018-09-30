@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoublyLinkedList", "DoublyLinkedList\DoublyLinkedList.csproj", "{8C3021EA-CAED-41E4-8507-CF374D2F0795}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoublyLinkedList.Tests", "DoublyLinkedList.Tests\DoublyLinkedList.Tests.csproj", "{6D678EA3-C675-4729-8B86-81F631985B7B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C3021EA-CAED-41E4-8507-CF374D2F0795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C3021EA-CAED-41E4-8507-CF374D2F0795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C3021EA-CAED-41E4-8507-CF374D2F0795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C3021EA-CAED-41E4-8507-CF374D2F0795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D678EA3-C675-4729-8B86-81F631985B7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D678EA3-C675-4729-8B86-81F631985B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D678EA3-C675-4729-8B86-81F631985B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D678EA3-C675-4729-8B86-81F631985B7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
